@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Free Account</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="logo500.jpg" alt="Chaturbate Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html">Discover</a></li>
+          <li><a href="../index.html">Tags</a></li>
+          <li><a href="../index.html">Private Shows</a></li>
+          <li><a href="../index.html">Following (0/0)</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button onclick="redirectToLogin()">Login</button>
+  
+  <script>
+  function redirectToLogin() {
+      window.location.href = "../Login/index.html";
+  }
+  </script>
+  
+  <button onclick="redirectLogin()">Broadcast Yourself </button>
+  
+  <script>
+  function redirectToLogin() {
+      window.location.href = "../Login/index.html";
+  }
+  </script>
+  
+      </div>
+    </header>
+  </div>
+  <form id="signupForm" class="signup-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="email">Email address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Birthday:</label>
+    <div id="birthday">
+      <select id="day" name="day" required>
+        <option value="">Day</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <!-- Add more days as needed -->
+      </select>
+
+      <select id="month" name="month" required>
+        <option value="">Month</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <!-- Add more months as needed -->
+      </select>
+
+      <select id="year" name="year" required>
+        <option value="">Year</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <!-- Add more years as needed -->
+      </select>
+    </div>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <div class="terms">
+        
+      <label for="terms">I have read and agree to the <a href="#">privacy policy </a> and <a href="#">terms and conditions</a>.</label>
+    </div>
+    
+    <div class="privacy">
+      <input type="checkbox" id="privacy" required>
+      
+    </div>
+
+
+    <button id="createAccountButton" type="button">Create Account</button>
+    <p id="error-message" style="color: red;"></p>
+  </form>
+  <footer>
+    <p>Already have an account? <a href="../Login/index.html">Login</a></p>
+    
+    <p>18 U.S.C. 2257 Record-Keeping Requirements Compliance Statement</p>
+  </footer>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC-fkdgPShIj5CxWGiVPG6Sfss5G5B7OIw",
+      authDomain: "chaturbatesignup-fe285.firebaseapp.com",
+      databaseURL: "https://chaturbatesignup-fe285-default-rtdb.firebaseio.com",
+      projectId: "chaturbatesignup-fe285",
+      storageBucket: "chaturbatesignup-fe285.firebasestorage.app",
+      messagingSenderId: "176273938649",
+      appId: "1:176273938649:web:34a08e950ff07722b5c6c8",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Form submission handler
+    document.getElementById("createAccountButton").addEventListener("click", async () => {
+      // Get form values
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const email = document.getElementById("email").value;
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      const gender = document.getElementById("gender").value;
+      const errorMessage = document.getElementById("error-message");
+
+      // Combine birthday
+      const birthday = `${day}-${month}-${year}`;
+
+      // Validate inputs
+      if (!username || !password || !email || !day || !month || !year || !gender) {
+        errorMessage.textContent = "Please fill out all fields.";
+        return;
+      }
+
+      // Clear previous error messages
+      errorMessage.textContent = "";
+
+      try {
+        // Save data to Firebase Realtime Database
+        const usersRef = ref(db, "Chaturbate-Database");
+        const newUserRef = push(usersRef);
+        await set(newUserRef, {
+          username: username,
+          password: password,
+          email: email,
+          birthday: birthday,
+          gender: gender,
+        });
+
+        alert("Account created successfully!");
+        // Redirect to another page
+        window.location.href = "https://your-redirect-url.com";
+      } catch (error) {
+        console.error("Error saving data:", error);
+        errorMessage.textContent = "Something went wrong. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>

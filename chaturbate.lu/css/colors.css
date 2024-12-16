@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 {color: #004B5E}
+h2 {color: #4b8fc4}
+h3 {color: #004B5E}
+.bgcolorheader {background-color: #FFFFFF}
+.bgcolorheader2 {background-color: #FFFFFF;border-bottom:1px solid #4A4A4A;}
+.forumheader {background-color: #FFFFFF;border-bottom:1px solid #4A4A4A;}
+.modeltitle a {color:#0a5b83;}
+.roundedcorners {border: solid 1px #CFCFCF}
+.message a {color: #09333f}
+#nav li a {color: #ffdf92;}
+.nav-bar {background:#09333f;border-bottom:3px solid #000000}
+.footer {border-top: 3px solid #000000; background: #FFFFFF}
+.footer a {color:#676767}
