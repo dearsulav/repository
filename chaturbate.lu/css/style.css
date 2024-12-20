@@ -872,3 +872,71 @@ footer {
         flex: 1;  /* Similarly, allow the Sign Up button to grow */
     }
 }
+/* Mobile View - Ensure all sections are visible */
+@media (max-width: 575.98px) {
+    .nav-bar {
+        display: flex; /* Ensure the navbar is properly laid out */
+        flex-direction: column; /* Stack navbar items for mobile */
+        justify-content: center;
+    }
+
+    #nav {
+        display: block; /* Ensure the navigation items are displayed */
+    }
+
+    #nav li {
+        margin: 10px 0; /* Space out navigation links */
+    }
+
+    .list li {
+        width: 100%; /* Make list items take up full width on mobile */
+        display: block; /* Ensure each item is on a new line */
+        margin-bottom: 10px;
+    }
+
+    .list .modelimage {
+        width: 100%; /* Ensure images scale properly on mobile */
+        height: auto;
+    }
+
+    /* Ensure any section with classes like 'footer' or other items are visible */
+    .footer, .modeldetails, .list, .message {
+        display: block; /* Make sure these sections are not hidden */
+        width: 100%;
+    }
+
+    .footercol {
+        text-align: center;
+        width: 100%; /* Allow footer content to take full width on mobile */
+    }
+
+    .footerrow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .signUpBtn,
+    .broadcastBtn {
+        width: 100%; /* Make buttons full width for mobile devices */
+        margin-bottom: 10px;
+    }
+
+    /* If you have specific components that should only appear on desktop */
+    .mobileonly {
+        display: block !important; /* Make sure mobile-specific items are shown */
+    }
+}
+
+/* Other general mobile styling fixes */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-bar, .footer {
+    padding: 10px;
+	    }
