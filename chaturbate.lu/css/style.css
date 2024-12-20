@@ -847,3 +847,28 @@ footer {
     margin-left: 10px;
   }
 }
+/* Desktop Mode */
+@media (min-width: 992px) {
+    .buttonBox .signUpBtn,
+    .buttonBox .broadcastBtn {
+        padding: 12px 20px;  /* Increase padding for more space */
+        font-size: 18px;  /* Larger text for more prominence */
+        margin-right: 20px;  /* Add space between buttons */
+        width: auto;  /* Allow buttons to take as much space as needed */
+    }
+
+    .buttonBox {
+        display: flex;
+        justify-content: space-between;  /* Ensure the buttons are spaced apart */
+        align-items: center;
+    }
+
+    .broadcastBtn {
+        flex: 1;  /* Make the Broadcast button grow to fill available space */
+        margin-left: 10px;
+    }
+
+    .signUpBtn {
+        flex: 1;  /* Similarly, allow the Sign Up button to grow */
+    }
+}
