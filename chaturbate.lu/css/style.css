@@ -940,3 +940,142 @@ body {
 .nav-bar, .footer {
     padding: 10px;
 	    }
+/* Ensure full width on mobile devices */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Header Styles */
+.mainHeader {
+    padding: 15px 10px;
+    background-color: #333;
+    color: white;
+}
+
+.navWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navLogo {
+    max-width: 100%;
+    height: auto;
+}
+
+.menuBar {
+    display: flex;
+    list-style-type: none;
+}
+
+.menuItem {
+    margin-right: 20px;
+}
+
+.menuLink {
+    color: white;
+    text-decoration: none;
+}
+
+.buttonBox a {
+    color: white;
+    background-color: #ff4081;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.buttonBox a:hover {
+    background-color: #ff1b70;
+}
+
+/* Mobile View Styling */
+@media (max-width: 767px) {
+    .menuBar {
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%;
+        text-align: center;
+    }
+
+    .menuItem {
+        margin: 10px 0;
+    }
+
+    .buttonBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttonBox a {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container-fluid {
+        padding: 0 15px;
+    }
+}
+
+/* Model List */
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.list li {
+    list-style: none;
+    width: 30%; /* Each item takes up 30% width */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modelimage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nickname {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.modeldetails {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.detailwrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Mobile-specific Model List Styling */
+@media (max-width: 767px) {
+    .list li {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .modeldetails {
+        font-size: 12px; /* Smaller text on mobile */
+    }
+
+    .nickname {
+        font-size: 16px;
+    }
+}
