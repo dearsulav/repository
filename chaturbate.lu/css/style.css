@@ -1286,3 +1286,199 @@ li {
         justify-content: space-between;
     }
 }
+/* General Styles for the Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainHeader {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLogo {
+    height: 50px;
+}
+
+.menuBar {
+    display: flex;
+}
+
+.menuList {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menuItem {
+    margin: 0 15px;
+}
+
+.menuLink {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signUpBtn, .broadcastBtn {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* Models List Layout */
+.container-fluid {
+    margin-top: 30px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modelimage {
+    width: 100%;
+    height: auto;
+}
+
+.nickname {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.modeldetails {
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1; /* Ensures the content grows and fills the available space */
+}
+
+.detailwrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 767px) {
+    /* Navigation Bar Adjustments for Mobile */
+    .menuBar {
+        display: block;
+        text-align: center;
+    }
+
+    .menuList {
+        display: block;
+        padding: 0;
+    }
+
+    .menuItem {
+        margin: 10px 0;
+    }
+
+    /* Buttons for Mobile */
+    .buttonBox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signUpBtn, .broadcastBtn {
+        width: 100%;
+        margin: 5px 0;
+        padding: 12px;
+    }
+
+    /* Adjust Model List for Mobile */
+    .list {
+        justify-content: center;
+    }
+
+    li {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .nickname {
+        font-size: 16px;
+    }
+
+    .modeldetails {
+        font-size: 12px;
+    }
+
+    .detailwrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Desktop Adjustments */
+@media screen and (min-width: 768px) {
+    /* Navigation Bar Layout for Desktop */
+    .menuBar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Model List Layout for Desktop */
+    .list {
+        justify-content: flex-start;
+    }
+
+    li {
+        width: 30%;
+    }
+
+    .nickname {
+        font-size: 18px;
+    }
+
+    .modeldetails {
+        font-size: 14px;
+    }
+
+    .detailwrapper {
+        justify-content: space-between;
+    }
+}
